@@ -1,0 +1,44 @@
+# IDEAL GAS LAW SOLVER
+
+# This program calculates the pressure of a gas using the Ideal Gas Law:
+    # PV = nRT
+# Solving for pressure:
+    # P = (nRT) / V
+
+# ---------------------------------------------------------
+
+print("==== IDEAL GAS LAW SOLVER ====")
+
+# Constant
+# Ideal gas constant
+R = 0.0821
+
+# User Inputs
+
+# Number of moles of gas
+n = float(input("\nEnter number of moles (n): "))
+# Temperature in Kelvin
+T = float(input("Enter temperature in Kelvin (T): "))
+# Volume in liters
+V = float(input("Enter volume in liters (V): "))
+
+# Computation
+# Ideal Gas Law:
+# P = (nRT) / V
+P = (n * R * T) / V
+
+# Output
+print("\n==== RESULTS ====")
+print("Pressure:", P, "atm")
+
+# ---------------------------------------------------------
+
+# This program uses:
+# . variables -> R, n, T, V, P
+# . expressions -> (n * R * T) / V
+# . statements -> print(), assignments
+# . user input/output -> input(), print()
+
+# Future improvements:
+# . a solver for any variable (P, V, n, or T)
+# . unit conversion support
