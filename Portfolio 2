@@ -1,0 +1,133 @@
+# IMPROVED IDEAL GAS LAW SOLVER
+
+# This program solves for:
+    # . Pressure (P)
+    # . Volume (V)
+    # . Number of Moles (n)
+    # . Temperature (T)
+
+# ---------------------------------------------------------
+
+print("===================================")
+print("       IDEAL GAS LAW SOLVER")
+print("===================================")
+
+# Constant
+# Ideal gas constant
+R = 0.0821
+
+# Menu
+print("Choose what variable to solve for:")
+print("[1] Pressure (P)")
+print("[2] Volume (V)")
+print("[3] Number of Moles (n)")
+print("[4] Temperature (T)")
+
+# User Choice
+choice = input("\nEnter your choice (1-4): ")
+
+# ---------------------------------------------------------
+
+# Solve for Pressure
+# Formula: P = (nRT) / V
+
+if choice == "1":
+    n = float(input("Enter number of moles (n): "))
+    T = float(input("Enter temperature in Kelvin (T): "))
+    V = float(input("Enter volume in liters (V): "))
+
+    # Check if volume is valid
+    if V > 0:
+        P = (n * R * T) / V
+
+        print("\n==== RESULTS ====")
+        print("Pressure =", P, "atm")
+
+    else:
+        print("\nERROR: Volume must be greater than zero.")
+
+# ---------------------------------------------------------
+
+# Solve for Volume
+# Formula: V = (nRT) / P
+
+elif choice == "2":
+
+    n = float(input("Enter number of moles (n): "))
+    T = float(input("Enter temperature in Kelvin (T): "))
+    P = float(input("Enter pressure in atm (P): "))
+
+    # Check if pressure is valid
+    if P > 0:
+        V = (n * R * T) / P
+
+        print("\n==== RESULTS ====")
+        print("Volume =", V, "L")
+
+    else:
+        print("\nERROR: Pressure must be greater than zero.")
+
+# ---------------------------------------------------------
+
+# Solve for Number of Moles
+# Formula: n = (PV) / (RT)
+
+elif choice == "3":
+
+    P = float(input("Enter pressure in atm (P): "))
+    V = float(input("Enter volume in liters (V): "))
+    T = float(input("Enter temperature in Kelvin (T): "))
+
+    # Check if temperature is valid
+    if T > 0:
+        n = (P * V) / (R * T)
+
+        print("\n==== RESULTS ====")
+        print("Number of Moles =", n, "mol")
+
+    else:
+        print("\nERROR: Temperature must be greater than zero.")
+
+# ---------------------------------------------------------
+
+# Solve for Temperature
+# Formula: T = (PV) / (nR)
+
+elif choice == "4":
+
+    P = float(input("Enter pressure in atm (P): "))
+    V = float(input("Enter volume in liters (V): "))
+    n = float(input("Enter number of moles (n): "))
+
+    # Chcek if number of moles is valid
+    if n > 0:
+        T = (P * V) / (n * R)
+
+        print("\n==== RESULTS ====")
+        print("Temperature =", T, "K")
+
+    else:
+        print("\nERROR: Number of moles must be greater than zero.")
+
+# ---------------------------------------------------------
+
+# Invalid Menu Choice
+else:
+    print("\nERROR: Invalid choice.")
+
+# ---------------------------------------------------------
+
+# This program uses:
+# . variables -> R, n, T, V, P
+# . expressions -> (n * R * T) / V, (n * R * T) / P, (P * V) / (R * T), (P * V) / (n * R)
+# . statements -> print(), assignments
+# . user input/output -> input(), print()
+# . conditionals -> if, elif, else
+
+# Improvements:
+# . Menu system -> choosing which variable to solve
+# . Input validation -> checking if values are greater than zero
+
+# Future improvements:
+# . functions for each formula
+# . unit conversion support
