@@ -1,0 +1,166 @@
+# IMPROVED IMPROVED IMPROVED IDEAL GAS LAW SOLVER
+
+# This program solves for:
+    # . Pressure (P)
+    # . Volume (V)
+    # . Number of Moles (n)
+    # . Temperature (T)
+
+# ---------------------------------------------------------
+
+# Constant
+# Ideal gas constant
+R = 0.0821
+
+# ---------------------------------------------------------
+
+
+# Function Definitions
+
+
+# Function: solve_pressure
+# Formula: P = (nRT) / V
+
+def solve_pressure():
+    
+    n = float(input("Enter number of moles (n): "))
+    T = float(input("Enter temperature in Kelvin (T): "))
+    V = float(input("Enter volume in liters (V): "))
+
+    # Check if volume is valid
+    if V > 0:
+        P = (n * R * T) / V
+
+        print("\n==== RESULTS ====")
+        print("Pressure =", P, "atm")
+
+    else:
+        print("\nERROR: Volume must be greater than zero.")
+
+
+# Function: solve_volume
+# Formula: V = (nRT) / P
+
+def solve_volume():
+
+    n = float(input("Enter number of moles (n): "))
+    T = float(input("Enter temperature in Kelvin (T): "))
+    P = float(input("Enter pressure in atm (P): "))
+
+    # Check if pressure is valid
+    if P > 0:
+        V = (n * R * T) / P
+
+        print("\n==== RESULTS ====")
+        print("Volume =", V, "L")
+
+    else:
+        print("\nERROR: Pressure must be greater than zero.")
+
+
+# Function: solve_moles
+# Formula: n = (PV) / (RT)
+
+def solve_moles():
+
+    P = float(input("Enter pressure in atm (P): "))
+    V = float(input("Enter volume in liters (V): "))
+    T = float(input("Enter temperature in Kelvin (T): "))
+
+    # Check if temperature is valid
+    if T > 0:
+        n = (P * V) / (R * T)
+
+        print("\n==== RESULTS ====")
+        print("Number of Moles =", n, "mol")
+
+    else:
+        print("\nERROR: Temperature must be greater than zero.")
+
+
+# Function: solve_temperature
+# Formula: T = (PV) / (nR)
+
+def solve_temperature():
+
+    P = float(input("Enter pressure in atm (P): "))
+    V = float(input("Enter volume in liters (V): "))
+    n = float(input("Enter number of moles (n): "))
+
+    # Chcek if number of moles is valid
+    if n > 0:
+        T = (P * V) / (n * R)
+
+        print("\n==== RESULTS ====")
+        print("Temperature =", T, "K")
+
+    else:
+        print("\nERROR: Number of moles must be greater than zero.")
+
+
+# ---------------------------------------------------------
+
+# Variable that controls the loop
+running = True
+
+# Loop starts here
+# The program repeats while running is True
+
+while running:
+
+    print("===================================")
+    print("       IDEAL GAS LAW SOLVER")
+    print("===================================")
+
+    # Menu
+    print("Choose what variable to solve for:")
+    print("[1] Pressure (P)")
+    print("[2] Volume (V)")
+    print("[3] Number of Moles (n)")
+    print("[4] Temperature (T)")
+    print("[5] Exit Program")
+
+    # User Menu Choice
+    choice = input("\nEnter your choice (1-5): ")
+
+
+    # Call the Appropriate Function
+
+    if choice == "1":
+        solve_pressure()
+
+    elif choice == "2":
+        solve_volume()
+
+    elif choice == "3":
+        solve_moles()
+
+    elif choice == "4":
+        solve_temperature()
+
+    # Stop the loop
+    elif choice == "5":
+        running = False
+        print("\nThank you for using the program!")
+
+    # Invalid Menu Choice
+    else:
+        print("\nERROR: Invalid choice.")
+
+# ---------------------------------------------------------
+
+# This program uses:
+# . variables -> R, n, T, V, P
+# . expressions -> (n * R * T) / V, (n * R * T) / P, (P * V) / (R * T), (P * V) / (n * R)
+# . statements -> print(), assignments
+# . user input/output -> input(), print()
+# . conditionals -> if, elif, else
+# . function definition -> def solve_pressure():, def solve_volume():, def solve_moles():, def solve_temperature():
+# . function call -> solve_pressure(), solve_volume(), solve_moles(), solve_temperature()
+# . loops and iterations -> while running:, running = True (Boolean variable), running = False (Loop control)
+
+# Improvements:
+# . repeated execution -> solving multiple problems
+
+# Future improvements:
+# . unit conversion
