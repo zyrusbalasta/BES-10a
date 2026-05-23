@@ -1,0 +1,262 @@
+# IMPROVED IMPROVED IMPROVED IMPROVED IMPROVED IDEAL GAS LAW SOLVER
+
+# This program solves for:
+    # . Pressure (P)
+    # . Volume (V)
+    # . Number of Moles (n)
+    # . Temperature (T)
+
+# ---------------------------------------------------------
+
+# Constant
+# Ideal gas constant
+R = 0.0821
+
+# ---------------------------------------------------------
+
+# List for Menu Options
+
+menu_options = [
+    "Solve for Pressure",
+    "Solve for Volume",
+    "Solve for Number of Moles",
+    "Solve for Temperature",
+    "View Calculation History",
+    "Exit"
+]
+
+# ---------------------------------------------------------
+
+# List for Calculation History
+
+history = []
+
+# ---------------------------------------------------------
+
+
+# Function Definitions
+
+
+# Function: display_header
+# Displays the title sections
+
+def display_header():
+
+    title = "IDEAL GAS LAW SOLVER"
+
+    print("\n" + "=" * 45)
+    print(title.center(45))
+    print("=" * 45 + "\n")
+
+
+# Function: display_menu
+# Displays menu options using a list
+
+def display_menu():
+
+    for index in range(len(menu_options)):
+        print(f"[{index + 1}] {menu_options[index]}")
+
+
+# Function: add_to_history
+# Adds a calculation record to the history list
+
+def add_to_history(record):
+
+    history.append(record)
+
+
+# Function: view_history
+# Displays all saved calculations
+
+def view_history():
+
+    print("\n======= CALCULATION HISTORY =======")
+
+    if len(history) == 0:
+        print("No calculations saved yet.")
+
+    else:
+        for item in history:
+            print(item)
+        print("=" *35)
+
+        
+# Function: solve_pressure
+# Formula: P = (nRT) / V
+
+def solve_pressure():
+
+    print("\n--- Solve for Pressure ---")
+
+    gas_name = input("\nEnter gas name: ")
+    
+    n = float(input("Enter number of moles (n): "))
+    T = float(input("Enter temperature in Kelvin (T): "))
+    V = float(input("Enter volume in liters (V): "))
+
+    # Check if volume is valid
+    if V > 0:
+        
+        P = (n * R * T) / V
+
+        result = f"{gas_name.upper()} | Pressure = {P:.4f} atm"
+
+        print("\n" + result)
+
+        # Save to history list
+        add_to_history(result)
+
+    else:
+        print("\nERROR: Volume must be greater than zero.")
+
+
+# Function: solve_volume
+# Formula: V = (nRT) / P
+
+def solve_volume():
+
+    print("\n--- Solve for Volume ---")
+
+    gas_name = input("\nEnter gas name: ")
+    
+    n = float(input("Enter number of moles (n): "))
+    T = float(input("Enter temperature in Kelvin (T): "))
+    P = float(input("Enter pressure in atm (P): "))
+
+    # Check if pressure is valid
+    if P > 0:
+        
+        V = (n * R * T) / P
+
+        result = f"{gas_name.upper()} | Pressure = {V:.4f} L"
+
+        print("\n" + result)
+
+        # Save to history list
+        add_to_history(result)
+
+    else:
+        print("\nERROR: Pressure must be greater than zero.")
+
+
+# Function: solve_moles
+# Formula: n = (PV) / (RT)
+
+def solve_moles():
+
+    print("\n--- Solve for Moles ---")
+
+    gas_name = input("\nEnter gas name: ")
+    
+    P = float(input("Enter pressure in atm (P): "))
+    V = float(input("Enter volume in liters (V): "))
+    T = float(input("Enter temperature in Kelvin (T): "))
+
+    # Check if temperature is valid
+    if T > 0:
+        
+        n = (P * V) / (R * T)
+
+        result = f"{gas_name.upper()} | Pressure = {n:.4f} mol"
+
+        print("\n" + result)
+
+        # Save to history list
+        add_to_history(result)
+
+    else:
+        print("\nERROR: Temperature must be greater than zero.")
+
+
+# Function: solve_temperature
+# Formula: T = (PV) / (nR)
+
+def solve_temperature():
+
+    print("\n--- Solve for Temperature ---")
+
+    gas_name = input("\nEnter gas name: ")
+
+    P = float(input("Enter pressure in atm (P): "))
+    V = float(input("Enter volume in liters (V): "))
+    n = float(input("Enter number of moles (n): "))
+
+    # Chcek if number of moles is valid
+    if n > 0:
+        
+        T = (P * V) / (n * R)
+
+        result = f"{gas_name.upper()} | Pressure = {T:.4f} K"
+
+        print("\n" + result)
+
+        # Save to history list
+        add_to_history(result)
+
+    else:
+        print("\nERROR: Number of moles must be greater than zero.")
+
+
+# ---------------------------------------------------------
+
+# Variable that controls the loop
+running = True
+
+# Loop starts here
+# The program repeats while running is True
+
+while running:
+
+    # Display program title
+    display_header()
+
+    # Display menu using list
+    display_menu()
+
+    # User Menu Choice
+    choice = input("\nEnter your choice (1-6): ")
+
+
+    # Call the Appropriate Function
+
+    if choice == "1":
+        solve_pressure()
+
+    elif choice == "2":
+        solve_volume()
+
+    elif choice == "3":
+        solve_moles()
+
+    elif choice == "4":
+        solve_temperature()
+
+    elif choice == "5":
+        view_history()
+        
+    # Stop the loop
+    elif choice == "6":
+        
+        farewell = "\nThank you for using the Ideal Gas Law Solver!"
+
+        print(farewell)
+        running = False
+
+    # Invalid Menu Choice
+    else:
+        print("\nERROR: Invalid choice.")
+
+# ---------------------------------------------------------
+
+# This program uses:
+# . variables -> R, n, T, V, P
+# . expressions -> (n * R * T) / V, (n * R * T) / P, (P * V) / (R * T), (P * V) / (n * R)
+# . statements -> print(), assignments
+# . user input/output -> input(), print()
+# . conditionals -> if, elif, else
+# . function definition -> def solve_pressure():, def solve_volume():, def solve_moles():, def solve_temperature():
+# . function call -> solve_pressure(), solve_volume(), solve_moles(), solve_temperature()
+# . loops and iterations -> while running:, running = True (Boolean variable), running = False (Loop control)
+# . strings
+# . lists
